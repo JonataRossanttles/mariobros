@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
 *{
     margin: 0;
@@ -23,9 +24,23 @@
     position: absolute;
 }
 .nuvens{
+    top: 50px;
     width: 500px;
    animation: nuvens_animation 15s infinite linear;
     position: absolute;
+}
+.jogar-novamente{
+    position: relative;
+    top: 26px;
+    left: -191px;
+    height: 26px;
+    cursor: pointer;
+    background-color: white;
+    font-family:  'Kumbh Sans', sans-serif ;
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.267);
 }
 
 .jump{
@@ -36,11 +51,29 @@
 height: 80px;
 position: absolute;
 bottom: 0;
-animation: tunel_animation 1.5s infinite linear;
+animation: tunel_animation 2s infinite linear;
 }
+.tunel:not(:last-child){
+    margin-right: 600px;
+}
+.game-over{
+    padding: 30px;
+    font-weight: bold;
+    background-color: rgba(255, 0, 0, 0.642);
+    text-align: center;
+    font-family: 'Kumbh Sans', sans-serif ;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+   text-align: center;
+    font-size: 2.5rem;
+    visibility: hidden;
+}
+
 @keyframes tunel_animation{
     from{
-        right: -100px;
+        right: -600px;
     }
     
     to{

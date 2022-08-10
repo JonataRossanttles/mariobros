@@ -10,19 +10,28 @@
 
 <body>
     <div class="layout">
+        <div class="game-over">GAME-OVER
+            <input type="button" value="Jogar Novamente" class="jogar-novamente">
+        </div>
         <img src="imagens/clouds.png" alt="Nuvens" class="nuvens">
         <img src="imagens/gif-mario.gif" alt="Mario Bros" class="mario">
         <img src="imagens/pipe.png" alt="Tunel do Mario" class="tunel">
+        <img src="imagens/pipe.png" alt="Tunel do Mario" class="tunel" id="tunel2">
         
     </div>
 
     
 </body>
 <script>
-
+let btn_atualizar = document.querySelector(".jogar-novamente")
 let mario = document.getElementsByClassName("mario")[0]
 let tunel = document.querySelector('.tunel')
+let tunel2 = document.querySelector("#tunel2")
+btn_atualizar.addEventListener("click",atualizar)
 document.addEventListener("keydown", jump)
+document.addEventListener("click", jump)
+
+
 
 function jump(){
     mario.classList.add("jump")
@@ -33,7 +42,10 @@ function jump(){
 }
 }
 const loop = setInterval(function desloc(){
+    
+    let game_over = document.querySelector(".game-over")
     const tunelposition = tunel.offsetLeft
+    const tunel2position = tunel2.offsetLeft
     const marioposition = Number(window.getComputedStyle(mario).bottom.replace("px",'')) 
 
     if (tunelposition < 100 && tunelposition>0 && marioposition<70){
@@ -42,13 +54,31 @@ const loop = setInterval(function desloc(){
         mario.style.animation = "none"
         mario.style.bottom = `${marioposition}px`
         mario.src = "imagens/game-over.png"
+        game_over.style.visibility = "visible"
+        tunel2.style.animation = 'none'
+        tunel2.style.left =   `${tunel2position}px`
+        
+    }
+    if (tunel2position < 100 && tunel2position>0 && marioposition<70){
+        tunel.style.animation = 'none'
+        tunel.style.left =   `${tunelposition}px`
+        mario.style.animation = "none"
+        mario.style.bottom = `${marioposition}px`
+        mario.src = "imagens/game-over.png"
+        game_over.style.visibility = "visible"
+        tunel2.style.animation = 'none'
+        tunel2.style.left =   `${tunel2position}px`
         
     }
 
+   
 
 },10)
 
-
+function atualizar(){
+    location.reload()
+    game_over.style.visibility = "hidden"
+}
 
 </script>
 </html>
