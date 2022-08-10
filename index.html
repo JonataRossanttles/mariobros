@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mario Bros</title>
+</head>
+
+<body>
+    <div class="layout">
+        <img src="imagens/clouds.png" alt="Nuvens" class="nuvens">
+        <img src="imagens/gif-mario.gif" alt="Mario Bros" class="mario">
+        <img src="imagens/pipe.png" alt="Tunel do Mario" class="tunel">
+        
+    </div>
+
+    
+</body>
+<script>
+
+let mario = document.getElementsByClassName("mario")[0]
+let tunel = document.querySelector('.tunel')
+document.addEventListener("keydown", jump)
+
+function jump(){
+    mario.classList.add("jump")
+    setTimeout(remover_pulo,500)
+
+    function remover_pulo(){
+    mario.classList.remove("jump")
+}
+}
+const loop = setInterval(function desloc(){
+    const tunelposition = tunel.offsetLeft
+    const marioposition = Number(window.getComputedStyle(mario).bottom.replace("px",'')) 
+
+    if (tunelposition < 100 && tunelposition>0 && marioposition<70){
+        tunel.style.animation = 'none'
+        tunel.style.left =   `${tunelposition}px`
+        mario.style.animation = "none"
+        mario.style.bottom = `${marioposition}px`
+        mario.src = "imagens/game-over.png"
+        
+    }
+
+
+},10)
+
+
+
+</script>
+</html>

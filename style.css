@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.layout{
+    background:linear-gradient(#87ceeb, #e0f6ff);
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    border-bottom: solid 10px green;
+
+}
+.mario{
+    width: 120px;
+    height: 120px;
+   bottom: 0;
+    position: absolute;
+}
+.nuvens{
+    width: 500px;
+   animation: nuvens_animation 15s infinite linear;
+    position: absolute;
+}
+
+.jump{
+    animation: jump-mario 500ms ease-out ;
+}
+.tunel{
+    width: 80px;
+height: 80px;
+position: absolute;
+bottom: 0;
+animation: tunel_animation 1.5s infinite linear;
+}
+@keyframes tunel_animation{
+    from{
+        right: -100px;
+    }
+    
+    to{
+        right: 100%;
+    }
+}
+@keyframes nuvens_animation{
+    from{
+        right: -500px;
+    }
+    
+    to{
+        right: 100%;
+    }
+}
+@keyframes jump-mario{
+
+    0%{
+        bottom: 0;
+    }
+    40%{
+        bottom: 140px;
+    }
+    50%{
+        bottom: 140px;
+    }
+    60%{
+        bottom: 140px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
