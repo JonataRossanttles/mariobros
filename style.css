@@ -80,7 +80,7 @@ audio{
     height: 80px;
     position: absolute;
     bottom: 0;
-    animation: tunel_animation 1s infinite linear;
+    animation: tunel_animation 5s infinite linear;
 }
 .nivel3{
     width: 80px;
