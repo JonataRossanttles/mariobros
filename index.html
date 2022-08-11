@@ -56,11 +56,14 @@ if(pontuação >= 100 && pontuação <=500 && tun2position<=0 ){
     tunel.classList.add("nivel2")
     tunel2.classList.add("nivel2")
 }else if(pontuação >= 501  && pontuação <=700 && tun2position<=0){
+
     tunel.classList.remove("nivel2")
     tunel2.classList.remove("nivel2")
     tunel.classList.add("nivel3")
     tunel2.classList.add("nivel3")
 }else if(pontuação >= 701 && pontuação <=900 && tun2position<=0){
+    tunel.classList.remove("nivel2")
+    tunel2.classList.remove("nivel2")
     tunel.classList.remove("nivel3")
     tunel2.classList.remove("nivel3")
     tunel.classList.add("nivel4")
