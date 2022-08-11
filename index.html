@@ -10,10 +10,15 @@
 
 <body>
     <div class="layout">
+        <audio src="imagens/Super-Mario.mp3"  controls loop class="audio" onclick="clicar()" > </audio>
         <div class="game-over">GAME-OVER
             <input type="button" value="Jogar Novamente" class="jogar-novamente">
         </div>
         <img src="imagens/clouds.png" alt="Nuvens" class="nuvens">
+        <div class="container-pontuação">
+            <span>Pontuação:</span>
+            <div class="pontuação">0</div>
+        </div>
         <img src="imagens/gif-mario.gif" alt="Mario Bros" class="mario">
         <img src="imagens/pipe.png" alt="Tunel do Mario" class="tunel">
         <img src="imagens/pipe.png" alt="Tunel do Mario" class="tunel" id="tunel2">
@@ -23,6 +28,9 @@
     
 </body>
 <script>
+let musica = document.querySelector(".audio")
+let pontos = document.querySelector(".pontuação")
+let tn2 = document.querySelector("#tunel2")
 let btn_atualizar = document.querySelector(".jogar-novamente")
 let mario = document.getElementsByClassName("mario")[0]
 let tunel = document.querySelector('.tunel')
@@ -32,10 +40,48 @@ document.addEventListener("keydown", jump)
 document.addEventListener("click", jump)
 
 
+  
+
+
+
+
+
+ let contador = setInterval(function cont(){
+    const tun2position = tn2.offsetLeft
+var pontuação =  parseInt(pontos.innerText) + 1 
+pontos.innerHTML = pontuação
+if(pontuação >= 100 && pontuação <=200 && tun2position<=0 ){
+    tunel.classList.remove("tunel")
+    tunel2.classList.remove("tunel")
+    tunel.classList.add("nivel2")
+    tunel2.classList.add("nivel2")
+}else if(pontuação >= 201  && pontuação <=400 && tun2position<=0){
+    tunel.classList.remove("nivel2")
+    tunel2.classList.remove("nivel2")
+    tunel.classList.add("nivel3")
+    tunel2.classList.add("nivel3")
+}else if(pontuação >= 401 && pontuação <=600 && tun2position<=0){
+    tunel.classList.remove("nivel3")
+    tunel2.classList.remove("nivel3")
+    tunel.classList.add("nivel4")
+    tunel2.classList.add("nivel4")
+}else if(pontuação >= 601 && pontuação <=100000 && tun2position<=0){
+    tunel.classList.remove("nivel4")
+    tunel2.classList.remove("nivel4")
+    tunel.classList.add("nivel5")
+    tunel2.classList.add("nivel5")
+}
+
+
+ },90)
+
+
 
 function jump(){
     mario.classList.add("jump")
     setTimeout(remover_pulo,500)
+    musica.play();
+    musica.loop =true;
 
     function remover_pulo(){
     mario.classList.remove("jump")
@@ -48,6 +94,9 @@ const loop = setInterval(function desloc(){
     const tunel2position = tunel2.offsetLeft
     const marioposition = Number(window.getComputedStyle(mario).bottom.replace("px",'')) 
 
+
+    
+
     if (tunelposition < 100 && tunelposition>0 && marioposition<70){
         tunel.style.animation = 'none'
         tunel.style.left =   `${tunelposition}px`
@@ -57,6 +106,8 @@ const loop = setInterval(function desloc(){
         game_over.style.visibility = "visible"
         tunel2.style.animation = 'none'
         tunel2.style.left =   `${tunel2position}px`
+        clearInterval(contador)
+        musica.stop()
         
     }
     if (tunel2position < 100 && tunel2position>0 && marioposition<70){
@@ -68,7 +119,8 @@ const loop = setInterval(function desloc(){
         game_over.style.visibility = "visible"
         tunel2.style.animation = 'none'
         tunel2.style.left =   `${tunel2position}px`
-        
+        clearInterval(contador)
+        musica.stop()
     }
 
    
@@ -77,8 +129,11 @@ const loop = setInterval(function desloc(){
 
 function atualizar(){
     location.reload()
+    
     game_over.style.visibility = "hidden"
 }
+
+
 
 </script>
 </html>

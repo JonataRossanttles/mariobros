@@ -29,6 +29,31 @@
    animation: nuvens_animation 15s infinite linear;
     position: absolute;
 }
+.container-pontuação{
+display: flex;
+margin-top: 100px;
+position: absolute;
+left: 30px;
+background-color: rgba(0, 0, 0, 0.589);
+width: 170px;
+height: 40px;
+padding: 30px;
+border-radius: 20px;
+align-items: center;
+
+}
+.container-pontuação span{
+    font-family:  'Kumbh Sans', sans-serif ;
+    margin-right: 20px;
+    font-weight: bold;
+    color: white;
+    
+}
+.pontuação{
+    font-family:  'Kumbh Sans', sans-serif ;
+    color: white;
+    font-weight: bold;
+}
 .jogar-novamente{
     position: relative;
     align-self: center;
@@ -46,14 +71,55 @@
 .jump{
     animation: jump-mario 500ms ease-out ;
 }
+audio{
+    position: absolute;
+    display: none;
+}
+.nivel2{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    animation: tunel_animation 1s infinite linear;
+}
+.nivel3{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    animation: tunel_animation 4s infinite linear;
+}
+.nivel4{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    animation: tunel_animation 3s infinite linear;
+}
+.nivel5{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    animation: tunel_animation 2s infinite linear;
+}
 .tunel{
     width: 80px;
 height: 80px;
 position: absolute;
 bottom: 0;
-animation: tunel_animation 2s infinite linear;
+animation: tunel_animation 6s infinite linear;
 }
 .tunel:not(:last-child){
+    margin-right: 600px;
+}
+.nivel2:not(:last-child){
+    margin-right: 600px;
+}
+.nivel3:not(:last-child){
+    margin-right: 600px;
+}
+.nivel4:not(:last-child){
     margin-right: 600px;
 }
 .game-over{
@@ -97,13 +163,13 @@ animation: tunel_animation 2s infinite linear;
         bottom: 0;
     }
     40%{
-        bottom: 140px;
+        bottom: 200px;
     }
     50%{
-        bottom: 140px;
+        bottom: 200px;
     }
     60%{
-        bottom: 140px;
+        bottom: 200px;
     }
     100%{
         bottom: 0;
