@@ -42,6 +42,10 @@ border-radius: 20px;
 align-items: center;
 
 }
+.sol{
+	position: absolute;
+	left:80%;
+}
 .container-pontuação span{
     font-family:  'Kumbh Sans', sans-serif ;
     margin-right: 20px;
@@ -80,35 +84,35 @@ audio{
     height: 80px;
     position: absolute;
     bottom: 0;
-    animation: tunel_animation 5s infinite linear;
+    animation: tunel_animation 4s infinite linear;
 }
 .nivel3{
     width: 80px;
     height: 80px;
     position: absolute;
     bottom: 0;
-    animation: tunel_animation 4s infinite linear;
+    animation: tunel_animation 3s infinite linear;
 }
 .nivel4{
     width: 80px;
     height: 80px;
     position: absolute;
     bottom: 0;
-    animation: tunel_animation 3s infinite linear;
+    animation: tunel_animation 2s infinite linear;
 }
 .nivel5{
     width: 80px;
     height: 80px;
     position: absolute;
     bottom: 0;
-    animation: tunel_animation 2s infinite linear;
+    animation: tunel_animation 1s infinite linear;
 }
 .tunel{
     width: 80px;
 height: 80px;
 position: absolute;
 bottom: 0;
-animation: tunel_animation 6s infinite linear;
+animation: tunel_animation 5s infinite linear;
 }
 .tunel:not(:last-child){
     margin-right: 600px;
@@ -139,6 +143,19 @@ animation: tunel_animation 6s infinite linear;
     visibility: hidden;
 }
 
+.aguia{
+	position:absolute;
+	animation: tunel_animation 10s infinite linear;
+	top:150px;	
+	width:150px;
+	height:150px;
+	
+}
+
+.bruxa{
+	position:absolute;
+}
+
 @keyframes tunel_animation{
     from{
         right: -600px;
@@ -148,6 +165,19 @@ animation: tunel_animation 6s infinite linear;
         right: 100%;
     }
 }
+
+@keyframes bruxa_animation{
+    from{
+        left: -600px;
+    }
+    
+    to{
+        left: 100%;
+    }
+}
+
+
+
 @keyframes nuvens_animation{
     from{
         right: -500px;
@@ -175,3 +205,5 @@ animation: tunel_animation 6s infinite linear;
         bottom: 0;
     }
 }
+
+cor1:  #0a131a cor2 : #1c2838 cor3: #48525e

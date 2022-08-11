@@ -14,6 +14,8 @@
         <div class="game-over">GAME-OVER
             <input type="button" value="Jogar Novamente" class="jogar-novamente">
         </div>
+	<img src="imagens/aguia gif.gif" alt="águia" class="aguia">
+	<img src="imagens/bruxa gif.gif" alt="Bruxa" class="bruxa">
         <img src="imagens/sol gif.gif" alt="Nuvens" class="sol">
         <img src="imagens/clouds.png" alt="Nuvens" class="nuvens">
         <div class="container-pontuação">
@@ -29,6 +31,10 @@
     
 </body>
 <script>
+let bruxa = document.querySelector(".bruxa")
+let nuvens = document.querySelector(".aguia")
+let sol = document.querySelector(".sol")
+let nuvens = document.querySelector(".nuvens")
 let musica = document.querySelector(".audio")
 let pontos = document.querySelector(".pontuação")
 let tn2 = document.querySelector("#tunel2")
@@ -45,11 +51,13 @@ document.addEventListener("click", jump)
     const tun2position = tn2.offsetLeft
 var pontuação =  parseInt(pontos.innerText) + 1 
 pontos.innerHTML = pontuação
-if(pontuação >= 100 && pontuação <=500 && tun2position<=0 ){
+if(pontuação >= 10 && pontuação <=500 && tun2position<=0 ){
     tunel.classList.remove("tunel")
     tunel2.classList.remove("tunel")
     tunel.classList.add("nivel2")
     tunel2.classList.add("nivel2")
+	sol.style.display = "none"
+	
 }else if(pontuação >= 501  && pontuação <=700 && tun2position<=0){
 
     tunel.classList.remove("nivel2")
