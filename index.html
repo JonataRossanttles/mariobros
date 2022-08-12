@@ -16,7 +16,8 @@
         </div>
 	<img src="imagens/aguia gif.gif" alt="águia" class="aguia">
 	<img src="imagens/bruxa gif.gif" alt="Bruxa" class="bruxa">
-        <img src="imagens/sol gif.gif" alt="Nuvens" class="sol">
+    <img src="imagens/lua.png" alt="lua" class="lua">
+        <img src="imagens/sol gif.gif" alt="Sol" class="sol">
         <img src="imagens/clouds.png" alt="Nuvens" class="nuvens">
         <div class="container-pontuação">
             <span>Pontuação:</span>
@@ -26,52 +27,62 @@
         <img src="imagens/pipe.png" alt="Tunel do Mario" class="tunel">
         <img src="imagens/pipe.png" alt="Tunel do Mario" class="tunel" id="tunel2">
         
+        
     </div>
 
     
 </body>
 <script>
+let layout = document.querySelector(".layout")
 let bruxa = document.querySelector(".bruxa")
-let nuvens = document.querySelector(".aguia")
+let aguia = document.querySelector(".aguia")
 let sol = document.querySelector(".sol")
+let lua = document.querySelector(".lua")
 let nuvens = document.querySelector(".nuvens")
 let musica = document.querySelector(".audio")
 let pontos = document.querySelector(".pontuação")
 let tn2 = document.querySelector("#tunel2")
 let btn_atualizar = document.querySelector(".jogar-novamente")
 let mario = document.getElementsByClassName("mario")[0]
-let tunel = document.querySelector('.tunel')
+let tunel = document.getElementsByClassName("tunel")[0]
 let tunel2 = document.querySelector("#tunel2")
 btn_atualizar.addEventListener("click",atualizar)
 document.addEventListener("keydown", jump)
 document.addEventListener("click", jump)
 
 
+
+sol.classList.add("por-do-sol")
+
+
+
  let contador = setInterval(function cont(){
     const tun2position = tn2.offsetLeft
 var pontuação =  parseInt(pontos.innerText) + 1 
 pontos.innerHTML = pontuação
-if(pontuação >= 10 && pontuação <=500 && tun2position<=0 ){
+if(pontuação >= 300 && pontuação <=500 && tun2position<=0 ){
     tunel.classList.remove("tunel")
     tunel2.classList.remove("tunel")
     tunel.classList.add("nivel2")
     tunel2.classList.add("nivel2")
-	sol.style.display = "none"
 	
-}else if(pontuação >= 501  && pontuação <=700 && tun2position<=0){
-
+}else if(pontuação >= 501  && pontuação <=800 && tun2position<=0 ){
     tunel.classList.remove("nivel2")
     tunel2.classList.remove("nivel2")
     tunel.classList.add("nivel3")
     tunel2.classList.add("nivel3")
-}else if(pontuação >= 701 && pontuação <=900 && tun2position<=0){
-    tunel.classList.remove("nivel2")
-    tunel2.classList.remove("nivel2")
+}else if(pontuação >= 801 && pontuação <=1500 && tun2position<=0){
+    lua.style.display = "block"
+    lua.classList.add("por-do-sol")
+    layout.classList.add("noite")
+    aguia.style.display = "none"
+    bruxa.style.display = "block"
     tunel.classList.remove("nivel3")
     tunel2.classList.remove("nivel3")
     tunel.classList.add("nivel4")
     tunel2.classList.add("nivel4")
-}else if(pontuação >= 901 && pontuação <=100000 && tun2position<=0){
+ 
+}else if(pontuação >= 1501 && pontuação <=100000 && tun2position<=0){
     tunel.classList.remove("nivel4")
     tunel2.classList.remove("nivel4")
     tunel.classList.add("nivel5")
@@ -80,6 +91,36 @@ if(pontuação >= 10 && pontuação <=500 && tun2position<=0 ){
 
 
  },90)
+  
+/* Passagem da manhã para a tarde*/
+var contador1 = setInterval(function tarde(){
+        const solposition = Number(window.getComputedStyle(sol).bottom.replace("px",'')) 
+        const luaposition = Number(window.getComputedStyle(lua).bottom.replace("px",'')) 
+
+    if ( sol.style.display = "block" && solposition <=0){
+        sol.style.display = "none"
+        aguia.style.display = "block"
+        clearInterval(contador1)
+        layout.classList.add("tarde")
+        sol.classList.remove("por-do-sol")
+    }
+    },10)
+/* Passagem da noite para manhã*/
+var contador2 = setInterval(function noite(){
+        const luaposition = Number(window.getComputedStyle(lua).bottom.replace("px",'')) 
+        
+
+    if ( lua.style.display = "block" && luaposition <=0){
+        sol.style.display = "block"
+        lua.style.display = "none"
+       bruxa.style.display = "none"
+        layout.classList.remove("noite")
+        layout.classList.remove("tarde")
+        clearInterval(contador2)
+    }
+    },10)
+
+    
 
 
 
@@ -113,7 +154,7 @@ const loop = setInterval(function desloc(){
         tunel2.style.animation = 'none'
         tunel2.style.left =   `${tunel2position}px`
         clearInterval(contador)
-        musica.stop()
+        
         
     }
     if (tunel2position < 100 && tunel2position>0 && marioposition<70){
@@ -126,7 +167,7 @@ const loop = setInterval(function desloc(){
         tunel2.style.animation = 'none'
         tunel2.style.left =   `${tunel2position}px`
         clearInterval(contador)
-        musica.stop()
+        
     }
 
    

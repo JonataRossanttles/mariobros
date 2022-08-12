@@ -23,6 +23,12 @@
    bottom: 0;
     position: absolute;
 }
+.mario2{
+    width: 140px;
+    height: 140px;
+   bottom: 0;
+    position: absolute;
+}
 .nuvens{
     top: 50px;
     width: 500px;
@@ -42,10 +48,7 @@ border-radius: 20px;
 align-items: center;
 
 }
-.sol{
-	position: absolute;
-	left:80%;
-}
+
 .container-pontuação span{
     font-family:  'Kumbh Sans', sans-serif ;
     margin-right: 20px;
@@ -75,6 +78,7 @@ align-items: center;
 .jump{
     animation: jump-mario 650ms ease-out ;
 }
+
 audio{
     position: absolute;
     display: none;
@@ -84,28 +88,29 @@ audio{
     height: 80px;
     position: absolute;
     bottom: 0;
-    animation: tunel_animation 4s infinite linear;
+    animation: tunel2_animation 4s infinite linear;
+    
 }
 .nivel3{
     width: 80px;
     height: 80px;
     position: absolute;
     bottom: 0;
-    animation: tunel_animation 3s infinite linear;
+    animation: tunel3_animation 3s infinite linear;
 }
 .nivel4{
     width: 80px;
     height: 80px;
     position: absolute;
     bottom: 0;
-    animation: tunel_animation 2s infinite linear;
+    animation: tunel4_animation 2s infinite linear;
 }
 .nivel5{
     width: 80px;
     height: 80px;
     position: absolute;
     bottom: 0;
-    animation: tunel_animation 1s infinite linear;
+    animation: tunel5_animation 1s infinite linear;
 }
 .tunel{
     width: 80px;
@@ -113,6 +118,10 @@ height: 80px;
 position: absolute;
 bottom: 0;
 animation: tunel_animation 5s infinite linear;
+}
+#tunel2{
+    width: 100px;
+height: 100px;
 }
 .tunel:not(:last-child){
     margin-right: 600px;
@@ -124,7 +133,10 @@ animation: tunel_animation 5s infinite linear;
     margin-right: 600px;
 }
 .nivel4:not(:last-child){
-    margin-right: 600px;
+    margin-right: 700px;
+}
+.nivel4:not(:last-child){
+    margin-right: 750px;
 }
 .game-over{
     padding: 30px;
@@ -142,18 +154,45 @@ animation: tunel_animation 5s infinite linear;
     font-size: 2.5rem;
     visibility: hidden;
 }
+.sol{
+	position: absolute;
+	left:80%;
+}
+.lua{
+    position: absolute;
+	left:80%;
+    width: 200px;
+    height: 200px;
+    display: none;
 
+}
+.tarde{
+    background:linear-gradient(#87ceeb, rgba(255, 166, 0, 0.552));
+    
+}
+.noite{
+    background:linear-gradient( #0a131a,  #1c2838 , #48525e);
+}
+.por-do-sol{
+    animation: sol_animation 60s  linear;
+}
+.por-lua{
+    animation: sol_animation 120s  linear;
+}
 .aguia{
 	position:absolute;
 	animation: tunel_animation 10s infinite linear;
 	top:150px;	
 	width:150px;
 	height:150px;
-	
+	display: none;
 }
 
 .bruxa{
+    top: 150px;
 	position:absolute;
+    animation: bruxa_animation 15s infinite linear;
+    display: none;
 }
 
 @keyframes tunel_animation{
@@ -165,14 +204,63 @@ animation: tunel_animation 5s infinite linear;
         right: 100%;
     }
 }
-
-@keyframes bruxa_animation{
+@keyframes tunel2_animation{
     from{
-        left: -600px;
+        right: -700px;
     }
     
     to{
-        left: 100%;
+        right: 100%;
+    }
+}
+@keyframes tunel3_animation{
+    from{
+        right: -750px;
+    }
+    
+    to{
+        right: 100%;
+    }
+}
+@keyframes tunel4_animation{
+    from{
+        right: -800px;
+    }
+    
+    to{
+        right: 100%;
+    }
+}
+@keyframes tunel5_animation{
+    from{
+        right: -850px;
+    }
+    
+    to{
+        right: 100%;
+    }
+}
+
+@keyframes sol_animation{
+    from{
+        top: 0;
+    }
+    
+    to{
+        top: 100%;
+        display: none;
+    }
+}
+
+
+
+@keyframes bruxa_animation{
+    from{
+        left: -300px;
+    }
+    
+    to{
+       left: 100%;
     }
 }
 
@@ -206,4 +294,3 @@ animation: tunel_animation 5s infinite linear;
     }
 }
 
-cor1:  #0a131a cor2 : #1c2838 cor3: #48525e
