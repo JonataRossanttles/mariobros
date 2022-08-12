@@ -177,7 +177,7 @@ height: 100px;
     animation: sol_animation 60s  linear;
 }
 .por-lua{
-    animation: sol_animation 120s  linear;
+    animation: sol_animation 5s  linear;
 }
 .aguia{
 	position:absolute;
