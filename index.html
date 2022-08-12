@@ -73,7 +73,7 @@ if(pontuação >= 300 && pontuação <=500 && tun2position<=0 ){
     tunel2.classList.add("nivel3")
 }else if(pontuação >= 801 && pontuação <=1500 && tun2position<=0){
     lua.style.display = "block"
-    lua.classList.add("por-do-sol")
+    lua.classList.add("por-lua")
     layout.classList.add("noite")
     aguia.style.display = "none"
     bruxa.style.display = "block"
@@ -113,9 +113,11 @@ var contador2 = setInterval(function noite(){
     if ( lua.style.display = "block" && luaposition <=0){
         sol.style.display = "block"
         lua.style.display = "none"
+        lua.classList.remove("por-lua")
        bruxa.style.display = "none"
         layout.classList.remove("noite")
         layout.classList.remove("tarde")
+        layout.classList.add("layout")
         clearInterval(contador2)
     }
     },10)
