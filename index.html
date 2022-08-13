@@ -65,12 +65,15 @@ if(pontuação >= 300 && pontuação <=500 && tun2position<=0 ){
     tunel2.classList.remove("tunel")
     tunel.classList.add("nivel2")
     tunel2.classList.add("nivel2")
+    tunel2.setAttribute('src', 'imagens/bomba.png');
 	
 }else if(pontuação >= 501  && pontuação <=800 && tun2position<=0 ){
     tunel.classList.remove("nivel2")
     tunel2.classList.remove("nivel2")
     tunel.classList.add("nivel3")
     tunel2.classList.add("nivel3")
+    tunel.setAttribute('src', 'imagens/cogumelo.png');
+    tunel2.setAttribute('src', 'imagens/pipe.png');
 }else if(pontuação >= 801 && pontuação <=1500 && tun2position<=0){
     lua.style.display = "block"
     lua.classList.add("por-lua")
@@ -81,7 +84,8 @@ if(pontuação >= 300 && pontuação <=500 && tun2position<=0 ){
     tunel2.classList.remove("nivel3")
     tunel.classList.add("nivel4")
     tunel2.classList.add("nivel4")
- 
+    tunel.setAttribute('src', 'imagens/bomba.png');
+    tunel2.setAttribute('src', 'imagens/fantasma.png');
 }else if(pontuação >= 1501 && pontuação <=100000 && tun2position<=0){
     tunel.classList.remove("nivel4")
     tunel2.classList.remove("nivel4")
@@ -118,6 +122,8 @@ var contador2 = setInterval(function noite(){
         layout.classList.remove("noite")
         layout.classList.remove("tarde")
         layout.classList.add("layout")
+        tunel.setAttribute('src', 'imagens/pipe.png');
+    tunel2.setAttribute('src', 'imagens/pipe.png');
         clearInterval(contador2)
     }
     },10)
