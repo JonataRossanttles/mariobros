@@ -135,8 +135,8 @@ height: 100px;
 .nivel4:not(:last-child){
     margin-right: 700px;
 }
-.nivel4:not(:last-child){
-    margin-right: 750px;
+.nivel5:not(:last-child){
+    margin-right: 1000px;
 }
 .game-over{
     padding: 30px;
@@ -233,7 +233,7 @@ height: 100px;
 }
 @keyframes tunel5_animation{
     from{
-        right: -850px;
+        right: -1000px;
     }
     
     to{
